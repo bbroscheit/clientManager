@@ -2,6 +2,7 @@ const User = require("../models/user.js");
 const userRouter = require("express").Router();
 const bcrypt = require("bcrypt");
 
+
 userRouter.get("/", (req, res) => {
   User.find({ isDelete: false })
     .then((result) => res.json(result))
@@ -10,12 +11,13 @@ userRouter.get("/", (req, res) => {
 
 userRouter.post("/", async (request, response) => {
   const { body } = request;
-  const { perfil, name, surname, password, admin, isDelete = false } = body;
+  const { username, perfil, name, surname, password, admin, isDelete = false } = body;
 
   const saltRounds = 10;
   const passwordHash = await bcrypt.hash(password, saltRounds);
 
   const newUser = new User({
+    username,
     perfil,
     name,
     surname,

@@ -2,7 +2,8 @@ const initialState = {
     allUsers: [],
     allMessages:[],
     allClients:[],
-    clientDetail:[]
+    clientDetail:[],
+    login:[]
 }
 
 function mainReducer(state = initialState, action){
@@ -29,6 +30,11 @@ function mainReducer(state = initialState, action){
             return{
                 ...state,
                 clientDetail: action.payload
+            }
+        case "LOGIN":
+            return{
+                ...state,
+                login: action.payload
             }
         default:
             return state;

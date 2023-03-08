@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch} from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
@@ -8,6 +9,7 @@ import Fade from '@material-ui/core/Fade';
 import TextField from '@material-ui/core/TextField';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
+const dispatch = useDispatch;
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -44,7 +46,12 @@ function LandingPage() {
 
     const handleClose = () => {
         setOpen(false);
-    };
+};
+
+function handlesubmit(e){
+        e.preventDefault();
+        
+    }
 
     return (
         <div className={classes.root}>
@@ -66,13 +73,16 @@ function LandingPage() {
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                    <AccountCircleIcon />
+                        <AccountCircleIcon />
                         <h2 id="transition-modal-title">Log in</h2>
-                        
+
                         <p id="transition-modal-description">Please enter your username and password</p>
                         <form className={classes.root} noValidate autoComplete="off">
                             <TextField id="outlined-search" label="User" type="text" variant="outlined" />
                             <TextField id="outlined-search" label="Password" type="password" variant="outlined" />
+                            <Button variant="contained" color="primary" type="submit" onClick={handlesubmit}>
+                                Ingresar
+                            </Button>
                         </form>
                     </div>
                 </Fade>

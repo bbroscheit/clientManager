@@ -6,6 +6,7 @@ const cors = require("cors");
 const userRouter = require("./routes/users.js");
 const messageRouter = require("./routes/messages.js");
 const clientRouter = require("./routes/clients.js");
+const loginRouter = require("./routes/loginer.js");
 
 const server = express();
 
@@ -30,7 +31,8 @@ server.use((req, res, next) => {
 
 server.use('/api/users', userRouter);
 server.use('/api/messages', messageRouter);
-server.use('/api/clients', clientRouter);  
+server.use('/api/clients', clientRouter); 
+server.use('/api/login', loginRouter); 
 server.use(express.json())
 
 
