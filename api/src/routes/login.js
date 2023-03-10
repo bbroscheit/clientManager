@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require("../models/user.js");
-const loginRouter = require("express").Router;
+const loginRouter = require("express").Router();
 const bcrypt = require("bcrypt");
 const {
     JWTTOKEN

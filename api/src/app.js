@@ -6,7 +6,7 @@ const cors = require("cors");
 const userRouter = require("./routes/users.js");
 const messageRouter = require("./routes/messages.js");
 const clientRouter = require("./routes/clients.js");
-const loginRouter = require("./routes/loginer.js");
+const loginRouter = require("./routes/login.js");
 
 const server = express();
 
